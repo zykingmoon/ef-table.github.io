@@ -81,7 +81,6 @@ export function Table({columns, dataSource, scroll, pagination, fixLeft=0, fixRi
     const [page, setPage] = useState<number>(current);
     const [currentSource, setSource] = useState<DataType[]>(dataSource.slice(0, pageSize));
     
-
     const handleChangePage = useCallback(
         (nextPage: number) => {
             const begin = (nextPage-1) * pageSize;
