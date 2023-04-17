@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.page {
+  @apply h-10 w-10 rounded-lg border-none mx-1;
+}
+.pageActive {
+  @apply hover:bg-gray-200 cursor-pointer;
+}
+.pageCurrent {
+  @apply bg-gray-300;
+}
+.pageBtn {
+  @apply w-full h-full flex justify-center items-center;
+}
+
+.sorter svg{
+  @apply w-3 h-3;
+}
+.sorterDown {
+  @apply -mt-1;
+}
