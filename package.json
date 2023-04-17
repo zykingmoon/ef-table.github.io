@@ -13,15 +13,7 @@
     "eslint:lint": "npx eslint --ext \".js,.jsx,.ts,.tsx,.html,.md\"",
     "stylelint:fix": "npx stylelint \"**/*.css,.less,.scss\" --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,html,md}": "npm run eslint:fix",
-    "*.{css,less,scss}": "npm run stylelint:fix"
-  },
+
   "dependencies": {
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
