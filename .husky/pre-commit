@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "husky pre-commit"
+pnpm next lint

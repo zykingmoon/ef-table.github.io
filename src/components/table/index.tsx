@@ -73,15 +73,14 @@ export function Table({columns, dataSource, scroll, pagination, fixLeft=0, fixRi
     const [sortedSource, setSorted] = useState<DataType[]>(dataSource);
     const {x, y} = scroll || {}
     const columDatas:columDatasType[] = useColumnWidth(columns, fixLeft, fixRight, x);
-    // console.log('columDatas', columDatas)
+    // console.log('dataSource', dataSource)
 
     // pagination related
     let {pageSize = DEFAULT_PAGE_SIZE, current = 1} = pagination
     let pages = useMemo(() => Math.ceil(dataSource.length/pageSize), [dataSource, pageSize])
     const [page, setPage] = useState<number>(current);
     const [currentSource, setSource] = useState<DataType[]>(dataSource.slice(0, pageSize));
-
-
+    
     const handleChangePage = useCallback(
         (nextPage: number) => {
             const begin = (nextPage-1) * pageSize;
@@ -117,6 +116,13 @@ export function Table({columns, dataSource, scroll, pagination, fixLeft=0, fixRi
             setSource(newSource.slice(0, pageSize))
         }, [pageSize, dataSource, sortOrder, sortedKey]
     );
+    useEffect(() => {
+        setPage(1);
+        setSortKey('');
+        setSortOrder(null);
+        setSorted(dataSource);
+        setSource(dataSource.slice(0, pageSize))
+    }, [dataSource, pageSize]);
 
     const theadRef = useRef<HTMLDivElement>();
     const tbodyRef = useRef<HTMLDivElement>();
@@ -152,12 +158,10 @@ export function Table({columns, dataSource, scroll, pagination, fixLeft=0, fixRi
                         </table>
                     </div>
                     <div className="overflow-y-auto" style={{maxHeight: y}} ref={tbodyRef as React.RefObject<HTMLDivElement>}>
-                        {/* <div className=""> */}
-                            <table className="overflow-scroll max-h-full table-fixed min-w-full border-collapse" style={{width: x ?? '100%'}}>
-                                <Group columDatas={columDatas} />
-                                <Body columDatas={columDatas} sortedKey={sortedKey} dataSource={currentSource} />
-                            </table>
-                        {/* </div> */}
+                        <table className="overflow-scroll max-h-full table-fixed min-w-full border-collapse" style={{width: x ?? '100%'}}>
+                            <Group columDatas={columDatas} />
+                            <Body columDatas={columDatas} sortedKey={sortedKey} dataSource={currentSource} />
+                        </table>
                     </div>
                 </>): (
                     <div className="overflow-hidden">
