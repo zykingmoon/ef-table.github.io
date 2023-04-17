@@ -13,7 +13,6 @@
     "eslint:lint": "npx eslint --ext \".js,.jsx,.ts,.tsx,.html,.md\"",
     "stylelint:fix": "npx stylelint \"**/*.css,.less,.scss\" --fix"
   },
-
   "dependencies": {
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
@@ -28,7 +27,7 @@
   },
   "devDependencies": {
     "autoprefixer": "10.4.14",
-    "husky": "4.3.8",
+    "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "postcss": "8.4.21"
   }
