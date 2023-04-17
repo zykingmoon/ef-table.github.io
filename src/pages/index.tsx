@@ -6,10 +6,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4">
+    <main className="flex min-h-screen w-2/3 mx-auto flex-col items-center justify-between p-4">
       <h1 className={`${inter.className} mb-3 text-2xl font-semibold`}>
         Table Component
       </h1>
+      <TableSample />
       <div>
         <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
           Requirements: 
@@ -25,7 +26,6 @@ export default function Home() {
           <li>Build a CI/CD pipeline with GitHub Actions to deploy the page as GH Pages</li>
         </ul>
       </div>
-      <TableSample />
 
     </main>
   )

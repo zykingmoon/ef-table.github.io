@@ -39,11 +39,11 @@ export function Head({ columDatas, sortedKey, sortOrder, onSort }: HeadProps) {
                     let offsetStyle: React.CSSProperties = {};
                     if (column.fixed === 'left') {
                         baseClass.push('sticky z-10');
-                        divClass = 'bg-gray-500';
+                        column.sorter && (divClass = 'bg-gray-500');
                         offsetStyle = {left: column.offset}
                     } else if (column.fixed === 'right') {
                         baseClass.push('sticky z-10');
-                        divClass = 'bg-gray-500';
+                        column.sorter && (divClass = 'bg-gray-500');
                         offsetStyle = {right: column.offset}
                     }
                     return (<th 

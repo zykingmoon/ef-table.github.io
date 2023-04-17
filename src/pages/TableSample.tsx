@@ -12,16 +12,13 @@ const columns: ColumnsType<DataType>[] = [
   {
     title: 'Age',
     dataIndex: 'age',
+    sorter: true,
     width: 100,
   },
   {
     title: 'Chinese Score',
     dataIndex: 'chinese',
-    // sorter: true,
-    sorter: {
-      compare: (a, b) => a.chinese - b.chinese,
-      // multiple: 3,
-    },
+    sorter: true,
   },
   {
     title: 'English Score',
@@ -90,12 +87,10 @@ const TableSample: React.FC = () => {
   return <Table
     columns={columns}
     dataSource={data}
-    // onChange={onChange}
     pagination={{ pageSize: 20 }}
-    scroll={{ y: 240, x: 1300 }}
+    scroll={{ y: 300, x: 1300 }}
     fixLeft={2}
     fixRight={1}
-    // pagination={false}
   />
 }
   ;
