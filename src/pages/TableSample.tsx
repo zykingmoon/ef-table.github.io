@@ -1,4 +1,5 @@
 import { Table } from '../components/table'
+import {useState, useEffect} from 'react';
 import { DataType, ColumnsType } from '../components/table/interface'
 
 
@@ -63,34 +64,30 @@ const columns: ColumnsType<DataType>[] = [
     width: 100,
   },
 ];
-const data: DataType[] = [];
-for (let i = 0; i < 90; i++) {
-  data.push({
-    key: i,
-    name: `Student ${i}`,
-    age: 20 + i,
-    gender: ['Male', 'Female'][i % 2],
-    chinese: Math.round(Math.random() * 100),
-    math: Math.round(Math.random() * 100),
-    english: Math.round(Math.random() * 100),
-    physics: Math.round(Math.random() * 100),
-    chemistry: Math.round(Math.random() * 100),
-    biology: Math.round(Math.random() * 100),
-    geography: Math.round(Math.random() * 100),
-    history: Math.round(Math.random() * 100),
-  });
-}
 
-// ant-table-cell ant-table-column-sort ant-table-column-has-sorters
-// ant-table-cell ant-table-column-has-sorters
-// anticon anticon-caret-down ant-table-column-sorter-down
-// anticon anticon-caret-down ant-table-column-sorter-down active
-// const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
-//   console.log('params', pagination, filters, sorter, extra);
-// };
-
-const TableSample: React.FC = () => 
-  <Table
+const TableSample: React.FC = () => {
+  const [data, setData] = useState<DataType[]>([])
+  useEffect(() => {
+    const newData: DataType[] = [];
+    for (let i = 0; i < 90; i++) {
+      newData.push({
+        key: i,
+        name: `Student ${i}`,
+        age: 20 + i,
+        gender: ['Male', 'Female'][i % 2],
+        chinese: Math.round(Math.random() * 100),
+        math: Math.round(Math.random() * 100),
+        english: Math.round(Math.random() * 100),
+        physics: Math.round(Math.random() * 100),
+        chemistry: Math.round(Math.random() * 100),
+        biology: Math.round(Math.random() * 100),
+        geography: Math.round(Math.random() * 100),
+        history: Math.round(Math.random() * 100),
+      });
+    }
+    setData(newData)
+  }, []);
+  return <Table
     columns={columns}
     dataSource={data}
     // onChange={onChange}
@@ -99,9 +96,9 @@ const TableSample: React.FC = () =>
     fixLeft={2}
     fixRight={1}
     // pagination={false}
-  />;
-
-
+  />
+}
+  ;
 
 export {
   TableSample
