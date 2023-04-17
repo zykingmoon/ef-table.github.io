@@ -95,6 +95,4 @@ const TableSample: React.FC = () => {
 }
   ;
 
-export {
-  TableSample
-}
+export default TableSample
