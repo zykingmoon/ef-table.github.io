@@ -9,7 +9,6 @@
     "lint": "next lint",
     "prepare": "husky install",
     "eslint": "lint-staged",
-
     "eslint:fix": "npx eslint --fix --ext \".js,.jsx,.ts,.tsx,.html,.md\"",
     "eslint:lint": "npx eslint --ext \".js,.jsx,.ts,.tsx,.html,.md\"",
     "stylelint:fix": "npx stylelint \"**/*.css,.less,.scss\" --fix"
@@ -37,7 +36,7 @@
   },
   "devDependencies": {
     "autoprefixer": "10.4.14",
-    "husky": "^8.0.3",
+    "husky": "4.3.8",
     "lint-staged": "^13.2.1",
     "postcss": "8.4.21"
   }
