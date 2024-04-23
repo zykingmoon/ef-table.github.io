@@ -109,7 +109,7 @@ export function Table({columns, dataSource, scroll, pagination, fixLeft=0, fixRi
                 setSortKey(column);
             }
 
-            console.log('handleSort', newOrder, sortedKey)
+            // console.log('handleSort', newOrder, sortedKey)
             setPage(1);
             setSortOrder(newOrder);
             setSorted(newSource);
